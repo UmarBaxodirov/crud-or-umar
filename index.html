@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./index.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+        <header class="flex justify-center gap-[0px] mt-[30px] ml-[50px] items-center">
+            <h1 style=" font-weight: 500;" class="ml-[30px] text-[30px] text-[ font-family:  Ubuntu; max-[406px]:text-[17px] ">Exam results</h1>
+            <button id="add_btn" style="border-radius: 5px;"
+                class="text-[white] p-[10px] bg-[blue] ml-[600px] max-[926px]:ml-[-000px]">Add new student +</button>
+        </header>
+    <div class=" max-[1266px]:flex justify-center">
+        <section class="flex gap-[100px] max-[1266px]:block">
+            <section class="ml-[150px] w-[300px] mt-[30px] max-[1266px]:ml-[300px]">
+                <h1 style="margin-left: 12px; font-weight: 400;" class="text-[25px] text-[ font-family: " Ubuntu";">
+                    Filter
+                </h1>
+                <div id="crud-modal" tabindex="-1" aria-hidden="true"
+                    class=" overflow-y-auto overflow-x-hidden  top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-md max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <!-- Modal header -->
+
+                            <!-- Modal body -->
+                            <form class="p-4 md:p-5">
+                                <div class="grid gap-4 mb-4 grid-cols-2">
+                                    <div class="col-span-2">
+                                        <label for="name"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">search</label>
+                                        <input type="text" name="name" id="name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="Falonchi" required="">
+                                    </div>
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="price"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">mark</label>
+                                        <input type="" name="price" id="price"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="form" required="">
+                                    </div>
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="price"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                                        <input type="" name="price" id="price"
+                                            class="mt-[28px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="To" required="">
+                                    </div>
+                                    <div class="col-span-2">
+                                        <label for="name"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">search</label>
+                                        <input type="text" name="name" id="name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="Name" required="">
+                                    </div>
+
+
+                                </div>
+                                <button style="color: white; border-radius: 5px;" class=" h-[35px] w-[230px] hover:bg-blue-800 bg-blue-700 text-whitefont-family:
+                                Ubuntu;">
+                                    Filter
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="w-[850px] mt-[100px] ml-[20px] max-[330px]:w-[700px]">
+                <div class="flex justify-center relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-[700px] h-[25px] gap-[0px] text-sm rtl:text-right text-gray-900 dark:text-gray-400">
+                        <thead class=" gap-[0px] text-xs text-gray-700 uppercase dark:text-gray-900 ">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 max-[874px]:hidden">
+                                    <b>ID</b>
+                                </th>
+                                <th scope="col" class="px-2 py-1 max-[874px]:hidden">
+                                    Name & Lastname
+                                </th>
+                                <th scope="col" class="px-6 py-3 max-[795px]:hidden">
+                                    Marked date
+                                </th>
+                                <th scope="col" class="px-6 py-3 max-[795px]:hidden">
+                                    Mark
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Status
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Edit
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <!-- <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                      55
+                                </th>
+                                <td class="px-6 py-4  bg-gray-50 dark:bg-gray-800">
+                                    Quvonch Salom
+                                </td>
+                                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                    22.06.2024 10:51
+                                </td>
+                                <td class="px-6 py-4  bg-gray-50 dark:bg-gray-800">
+                                    67%
+                                </td>
+                                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                    <button
+                                        class="pr-[20px] pl-[20px] ml-[-10px] pt-[7px] pb-[7px] bg-lime-500 rounded-[20px]">
+                                        <p class="text-[white]">Pass</p>
+                                    </button>
+                                </td>
+                                <th scope="col"
+                                    class="pl-[10px] pr-[10px] pt-[10px] px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                    <button id="btn5"
+                                        class="bg-slate-300 hover:bg-slate-400 pr-[10px] ml-[10px] rounded pt-[10px] pb-[10px] hover:text-[white]">
+                                        <i class="fa-solid fa-pencil ml-[10px]"></i>
+                                    </button>
+                                </th>
+                                <th scope="col"
+                                    class="pl-[10px] pr-[10px] pt-[10px] px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                    <button id="btn6"
+                                        class="bg-slate-300 hover:bg-slate-400 pr-[10px] ml-[10px] rounded pt-[10px] pb-[10px] hover:text-[white]">
+                                        <i class="fa-solid fa-trash ml-[10px]"></i>
+                                    </button>
+                                </th>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </div>
+    <section id="modal"
+        class=" modal  hidden w-screen h-screen     backdrop-blur-[5px] fixed z-10  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+        <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+            class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex m-[auto]">
+            <div class="relative p-4 w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Add student
+                        </h3>
+                        <button id="closeBtn" type="button"
+                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="authentication-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-4 md:p-5">
+                        <form class="space-y-4" action="#">
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                                <input name="email" id="email"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    placeholder="Falonchi" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lastname</label>
+                                <input name="password" id="password" placeholder="Pismadonchi"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required />
+                            </div>
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mark</label>
+                                <input name="email" id="email1"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    placeholder="150" required />
+                            </div>
+                            <button type="submit" id="btn"
+                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                                student</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
